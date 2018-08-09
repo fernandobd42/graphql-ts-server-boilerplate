@@ -8,6 +8,33 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
+"@gql2ts/from-query@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@gql2ts/from-query/-/from-query-1.8.2.tgz#3af1606510260a8737c08142115a8a4b6ee0312e"
+  dependencies:
+    "@gql2ts/language-typescript" "^1.8.2"
+    "@gql2ts/util" "^1.8.1"
+
+"@gql2ts/from-schema@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@gql2ts/from-schema/-/from-schema-1.8.2.tgz#5ca8e159875b869292fd1e5764f37a09d254546a"
+  dependencies:
+    "@gql2ts/language-typescript" "^1.8.2"
+    "@gql2ts/util" "^1.8.1"
+    dedent "^0.7.0"
+    graphql ">= 0.10 <1.0.0"
+
+"@gql2ts/language-typescript@^1.8.2":
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/@gql2ts/language-typescript/-/language-typescript-1.8.2.tgz#545a82606eb77cb104a932dc7f6d1e411f7a79a4"
+  dependencies:
+    "@gql2ts/util" "^1.8.1"
+    humps "^2.0.0"
+
+"@gql2ts/util@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@gql2ts/util/-/util-1.8.1.tgz#a1260a741084a2232b45daee2b274fb64da332df"
+
 "@types/body-parser@*":
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.17.0.tgz#9f5c9d9bd04bb54be32d5eb9fc0d8c974e6cf58c"
@@ -77,6 +104,12 @@
   dependencies:
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
+
+"@types/uuid@^3.4.3":
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.3.tgz#121ace265f5569ce40f4f6d0ff78a338c732a754"
+  dependencies:
+    "@types/node" "*"
 
 "@types/zen-observable@^0.5.3":
   version "0.5.4"
@@ -377,7 +410,7 @@ braces@^2.3.0, braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-buffer-from@^1.0.0, buffer-from@^1.1.0:
+buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
 
@@ -534,7 +567,7 @@ color-name@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.1.tgz#4b1415304cf50028ea81643643bd82ea05803689"
 
-commander@^2.12.1, commander@^2.5.0:
+commander@^2.12.1, commander@^2.5.0, commander@^2.9.0:
   version "2.17.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
 
@@ -640,6 +673,10 @@ decamelize@^1.1.1:
 decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
+
+dedent@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
 
 deep-extend@^0.6.0:
   version "0.6.0"
@@ -993,6 +1030,16 @@ got@^6.7.1:
     unzip-response "^2.0.1"
     url-parse-lax "^1.0.0"
 
+gql2ts@^1.7.2:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/gql2ts/-/gql2ts-1.8.2.tgz#7246edef40711db25bf35aad5def66b083a17090"
+  dependencies:
+    "@gql2ts/from-query" "^1.8.2"
+    "@gql2ts/from-schema" "^1.8.2"
+    "@gql2ts/util" "^1.8.1"
+    commander "^2.9.0"
+    graphql ">= 0.10 <1.0.0"
+
 graceful-fs@^4.1.11, graceful-fs@^4.1.2:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
@@ -1021,6 +1068,12 @@ graphql-extensions@^0.0.x, graphql-extensions@~0.0.9:
 graphql-import@^0.4.0:
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/graphql-import/-/graphql-import-0.4.5.tgz#e2f18c28d335733f46df8e0733d8deb1c6e2a645"
+  dependencies:
+    lodash "^4.17.4"
+
+graphql-import@^0.5.0:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/graphql-import/-/graphql-import-0.5.3.tgz#c0487f7de16766e7e2174a85f61900de59a59227"
   dependencies:
     lodash "^4.17.4"
 
@@ -1108,7 +1161,7 @@ graphql-yoga@^1.15.1:
     graphql-tools "^3.0.0"
     subscriptions-transport-ws "^0.9.8"
 
-"graphql@^0.11.0 || ^0.12.0 || ^0.13.0":
+"graphql@>= 0.10 <1.0.0", "graphql@^0.11.0 || ^0.12.0 || ^0.13.0":
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
   dependencies:
@@ -1176,6 +1229,10 @@ http-errors@1.6.3, http-errors@~1.6.2, http-errors@~1.6.3:
     inherits "2.0.3"
     setprototypeof "1.1.0"
     statuses ">= 1.4.0 < 2"
+
+humps@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/humps/-/humps-2.0.1.tgz#dd02ea6081bd0568dc5d073184463957ba9ef9aa"
 
 iconv-lite@0.4.19:
   version "0.4.19"
@@ -2258,7 +2315,7 @@ source-map-resolve@^0.5.0:
     source-map-url "^0.4.0"
     urix "^0.1.0"
 
-source-map-support@^0.5.1, source-map-support@^0.5.6:
+source-map-support@^0.5.1, source-map-support@^0.5.3:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.6.tgz#4435cee46b1aab62b8e8610ce60f788091c51c13"
   dependencies:
@@ -2459,17 +2516,17 @@ touch@^3.1.0:
   dependencies:
     nopt "~1.0.10"
 
-ts-node@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-7.0.0.tgz#a94a13c75e5e1aa6b82814b84c68deb339ba7bff"
+ts-node@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-6.0.0.tgz#46c25f8498593a9248eeea16906f1598fa098140"
   dependencies:
     arrify "^1.0.0"
-    buffer-from "^1.1.0"
+    chalk "^2.3.0"
     diff "^3.1.0"
     make-error "^1.1.1"
     minimist "^1.2.0"
     mkdirp "^0.5.1"
-    source-map-support "^0.5.6"
+    source-map-support "^0.5.3"
     yn "^2.0.0"
 
 tslib@^1.8.0, tslib@^1.8.1:
@@ -2620,7 +2677,7 @@ uuid@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
 
-uuid@^3.1.0:
+uuid@^3.1.0, uuid@^3.2.1:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 
