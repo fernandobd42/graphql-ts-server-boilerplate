@@ -1,14 +1,13 @@
 import { request } from 'graphql-request'
 
-import { host } from './constants'
-import { User } from '../entity/User'
-import { startServer } from './../startServer'
+import { User } from './../../entity/User'
+import { startServer } from './../../startServer'
 
 let getHost = () => ''
 
 beforeAll(async () => {
   const app = await startServer()
-  const { port } = app.address()
+  const { port }: any = app.address()
   getHost = () => `http://127.0.0.1:${port}`
 })
 
