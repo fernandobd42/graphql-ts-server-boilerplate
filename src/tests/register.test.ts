@@ -1,11 +1,15 @@
 import { request } from 'graphql-request'
+
 import { host } from './constants'
 import { User } from '../entity/User'
+import { startServer } from './../startServer'
 
-import { CreateTypeOrmConnection } from './../utils/CreateTypeOrmConnection'
+let getHost = () => ''
 
 beforeAll(async () => {
-  await CreateTypeOrmConnection()
+  const app = await startServer()
+  const { port } = app.address()
+  getHost = () => `http://127.0.0.1:${port}`
 })
 
 const email = 'jao@gmail.com'
@@ -17,7 +21,7 @@ const mutation = `
     }
 `
 test('Register User', async () => {
-  const response = await request(host, mutation)
+  const response = await request(getHost(), mutation)
   expect(response).toEqual({ register: true })
   const users = await User.find({ where: { email } })
   expect(users).toHaveLength(1)
