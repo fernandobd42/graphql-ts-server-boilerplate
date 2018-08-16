@@ -24,7 +24,7 @@ export const resolvers: ResolverMap = {
     bye: () => "Bye"
   },
   Mutation: {
-    register: async (_, args: GQL.IRegisterOnMutationArguments, { redis, url}) => {
+    register: async (_, args: GQL.IRegisterOnMutationArguments, { redis, url }) => {
       try {
         await schema.validate(args, { abortEarly: false })
       } catch (err) {

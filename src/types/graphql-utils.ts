@@ -9,6 +9,7 @@ export interface ResolverMap {
           redis: Redis 
           url: string
         }, 
-        info: any) => any
-    };
+        info: any
+      ) => any
+    }
 }

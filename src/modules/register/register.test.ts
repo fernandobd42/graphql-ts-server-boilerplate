@@ -2,7 +2,6 @@ import { CreateTypeOrmConnection } from './../../utils/CreateTypeOrmConnection';
 import { request } from 'graphql-request'
 
 import { User } from './../../entity/User'
-import { startServer } from './../../startServer'
 import { duplicateEmail, emailNotLongEnough, invalidEmail, passwordNotLongEnough } from './errorMessages';
 
 const email = 'joaobd@gmail.com'
@@ -21,7 +20,7 @@ beforeAll(async () => {
   await CreateTypeOrmConnection()
 })
 
-describe('Register User', () => {
+describe('Register User', async () => {
   it("check for duplicate emails", async () => {
     // make sure we can register a user
     const response = await request(process.env.TEST_HOST as string, mutation(email, password))
