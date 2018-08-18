@@ -4,16 +4,16 @@ import { request } from 'graphql-request'
 import { User } from './../../entity/User'
 import { duplicateEmail, emailNotLongEnough, invalidEmail, passwordNotLongEnough } from './errorMessages';
 
-const email = 'joaobd@gmail.com'
+const email = 'fdaffdf@gmail.com'
 const password = 'qweasd123'
 
 const mutation = (e: string, p: string) => `
-mutation {
-        register(email: "${e}", password: "${p}") {
-          path
-          message
-        }
+  mutation {
+    register(email: "${e}", password: "${p}") {
+      path
+      message
     }
+  }
 `
 
 beforeAll(async () => {
