@@ -27,7 +27,7 @@
     "password": "",
     "database": "graphql-ts-server-boilerplate-test",
     "synchronize": true,
-    "logging": true,
+    "logging": false,
     "dropSchema": true,
     "entities": ["src/entity/**/*.ts"],
     "migrations": ["src/migration/**/*.ts"],

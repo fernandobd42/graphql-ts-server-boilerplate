@@ -1,4 +1,11 @@
 import { Redis } from "ioredis"
+import { Request } from "express";
+
+
+export interface Session {
+  userId?: string,
+  
+}
 
 export interface ResolverMap {
     [key: string]: {
@@ -7,7 +14,8 @@ export interface ResolverMap {
         args: any, 
         context: { 
           redis: Redis 
-          url: string
+          url: string,
+          session: Session
         }, 
         info: any
       ) => any
