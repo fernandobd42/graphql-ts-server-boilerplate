@@ -1,4 +1,5 @@
 import { request } from 'graphql-request'
+import { Connection } from 'typeorm'
 
 import { User } from './../../entity/User'
 import { CreateTypeOrmConnection } from './../../utils/CreateTypeOrmConnection'
@@ -16,8 +17,13 @@ const mutation = (e: string, p: string) => `
   }
 `
 
+let conn: Connection
 beforeAll(async () => {
-  await CreateTypeOrmConnection()
+  conn = await CreateTypeOrmConnection()
+})
+
+afterAll(async () => {
+  conn.close()
 })
 
 describe('Register User', async () => {

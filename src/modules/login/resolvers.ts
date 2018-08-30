@@ -22,26 +22,27 @@ export const resolvers: ResolverMap = {
       { session }
     ) => {
       const user = await User.findOne({ where: { email } })
-        if (!user) {
-          return errorResponse
-        }
-        if (!user.confirmed) {
-          return [
-            {
-              path: "email",
-              message: confirmEmailError
-            }
-          ]
-        }
-        const valid = await bcrypt.compare(password, user.password)
-        if (!valid) {
-          return errorResponse
-        }
       
-        // login successful
-        session.userId = user.id
+      if (!user) {
+        return errorResponse
+      }
+      if (!user.confirmed) {
+        return [
+          {
+            path: "email",
+            message: confirmEmailError
+          }
+        ]
+      }
+      const valid = await bcrypt.compare(password, user.password)
+      if (!valid) {
+        return errorResponse
+      }
+    
+      // login successful
+      session.userId = user.id
 
-        return null
+      return null
     }
   }
 }

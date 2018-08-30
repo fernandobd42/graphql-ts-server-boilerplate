@@ -5,8 +5,8 @@ import { invalidLogin, confirmEmailError } from "./errorMessages"
 import { User } from "../../entity/User"
 import { CreateTypeOrmConnection } from "../../utils/CreateTypeOrmConnection"
 
-const email = 'sasdsa@gmail.com'
-const password = 'qweasd1s23'
+const email = 'testttttt@gmail.com'
+const password = 'dsdsd'
  
 const registerMutation = (e: string, p: string) => `
   mutation {
@@ -16,6 +16,7 @@ const registerMutation = (e: string, p: string) => `
     }
   }
 `
+
 const loginMutation = (e: string, p: string) => `
   mutation {
     login(email: "${e}", password: "${p}") {
@@ -25,8 +26,12 @@ const loginMutation = (e: string, p: string) => `
   }
 `
 
+let conn: Connection
 beforeAll(async () => {
-  await CreateTypeOrmConnection()
+  conn = await CreateTypeOrmConnection()
+})
+afterAll(async () => {
+  conn.close()
 })
 
 const loginExpectError = async (e: string, p: string, errMsg: string) => {
