@@ -1,11 +1,12 @@
 import { request } from "graphql-request"
-import { invalidLogin, confirmEmailError } from "./errorMessages"
+import { Connection } from 'typeorm'
 
+import { invalidLogin, confirmEmailError } from "./errorMessages"
 import { User } from "../../entity/User"
 import { CreateTypeOrmConnection } from "../../utils/CreateTypeOrmConnection"
 
 const email = 'sasdsa@gmail.com'
-const password = 'qweasd123'
+const password = 'qweasd1s23'
  
 const registerMutation = (e: string, p: string) => `
   mutation {
@@ -44,10 +45,11 @@ const loginExpectError = async (e: string, p: string, errMsg: string) => {
 }
  
 describe("login", () => {
-  test("email not found send back error", async () => {
+  it("email not found send back error", async () => {
     await loginExpectError("bob@bob.com", "whatever", invalidLogin)
   })
-  test("email not confirmed", async () => {
+
+  it("email not confirmed", async () => {
     await request(
       process.env.TEST_HOST as string,
       registerMutation(email, password)

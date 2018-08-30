@@ -25,23 +25,23 @@ export const resolvers: ResolverMap = {
         if (!user) {
           return errorResponse
         }
-      if (!user.confirmed) {
-        return [
-          {
-            path: "email",
-            message: confirmEmailError
-          }
-        ]
-      }
-      const valid = await bcrypt.compare(password, user.password)
-      if (!valid) {
-        return errorResponse
-      }
+        if (!user.confirmed) {
+          return [
+            {
+              path: "email",
+              message: confirmEmailError
+            }
+          ]
+        }
+        const valid = await bcrypt.compare(password, user.password)
+        if (!valid) {
+          return errorResponse
+        }
       
-      // login successful
-      session.userId = user.id
+        // login successful
+        session.userId = user.id
 
-      return null
+        return null
     }
   }
 }
