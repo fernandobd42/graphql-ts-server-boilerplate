@@ -5,8 +5,8 @@ import { invalidLogin, confirmEmailError } from "./errorMessages"
 import { User } from "../../entity/User"
 import { CreateTypeOrmConnection } from "../../utils/CreateTypeOrmConnection"
 
-const email = 'testttttt@gmail.com'
-const password = 'dsdsd'
+const email = 'testemail@gmail.com'
+const password = 'paswordtest'
  
 const registerMutation = (e: string, p: string) => `
   mutation {
@@ -66,6 +66,7 @@ describe("login", () => {
       process.env.TEST_HOST as string,
       loginMutation(email, password)
     )
+
      expect(response).toEqual({ login: null })
   })
 })

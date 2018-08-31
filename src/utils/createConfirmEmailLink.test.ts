@@ -13,8 +13,8 @@ let conn: Connection;
 beforeAll(async () => {
   conn = await CreateTypeOrmConnection()
   const user = await User.create({
-    email: "bobTest@gmail.com",
-    password: "jhdjhfj4"
+    email: "testemail@gmail.com",
+    password: "passwordtest"
   }).save()
   userId = user.id
 })

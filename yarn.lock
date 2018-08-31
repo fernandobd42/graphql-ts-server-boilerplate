@@ -64,9 +64,9 @@
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-beta.51.tgz#27cec2df409df60af58270ed8f6aa55409ea86f6"
 
-"@babel/runtime@7.0.0-rc.1":
-  version "7.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-rc.1.tgz#42f36fc5817911c89ea75da2b874054922967616"
+"@babel/runtime@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0.tgz#adeb78fedfc855aa05bc041640f3f6f98e85424c"
   dependencies:
     regenerator-runtime "^0.12.0"
 
@@ -221,8 +221,8 @@
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.13.4.tgz#55ae9c29f0fd6b85ee536f5c72b4769d5c5e06b1"
 
 "@types/ioredis@^3.2.14":
-  version "3.2.15"
-  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-3.2.15.tgz#e36d5f67edd6fe6815bb0a0ef0e6343bf35f4ca5"
+  version "3.2.16"
+  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-3.2.16.tgz#c328742b77be6379c3713c5bea193c63157842e9"
   dependencies:
     "@types/bluebird" "*"
     "@types/node" "*"
@@ -246,8 +246,8 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.5.7.tgz#960d9feb3ade2233bcc9843c918d740b4f78a7cf"
 
 "@types/node@^10.5.7":
-  version "10.9.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.9.2.tgz#f0ab8dced5cd6c56b26765e1c0d9e4fdcc9f2a00"
+  version "10.9.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.9.4.tgz#0f4cb2dc7c1de6096055357f70179043c33e9897"
 
 "@types/range-parser@*":
   version "1.2.2"
@@ -1987,8 +1987,8 @@ graphql-tools@^3.0.0, graphql-tools@^3.0.5, graphql-tools@^3.1.1:
     uuid "^3.1.0"
 
 graphql-yoga@^1.16.1:
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.16.1.tgz#9ebb3c8c17c113e80fe2d37da804a6610ce744d9"
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.16.2.tgz#083293a9cecab6283e883c5a482c5c920fa66585"
   dependencies:
     "@types/cors" "^2.8.4"
     "@types/express" "^4.11.1"
@@ -2989,8 +2989,8 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
 kleur@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/kleur/-/kleur-2.0.1.tgz#7cc64b0d188d0dcbc98bdcdfdda2cc10619ddce8"
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/kleur/-/kleur-2.0.2.tgz#b704f4944d95e255d038f0cb05fb8a602c55a300"
 
 latest-version@^3.0.0:
   version "3.1.0"
@@ -3374,8 +3374,8 @@ node-pre-gyp@^0.10.0:
     tar "^4"
 
 nodemon@^1.18.3:
-  version "1.18.3"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.18.3.tgz#46e681ee0dd1b590562e03019b4c5df234f906f9"
+  version "1.18.4"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.18.4.tgz#873f65fdb53220eb166180cf106b1354ac5d714d"
   dependencies:
     chokidar "^2.0.2"
     debug "^3.1.0"
@@ -4565,9 +4565,9 @@ symbol-tree@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
 
-synchronous-promise@^1.0.18:
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-1.0.18.tgz#936e8763e6554088cdcf78dc64f7473b972fcefc"
+synchronous-promise@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.5.tgz#4e0fc8dd3f0062720dcc4cefbd9eae62b40637d8"
 
 tar@^4:
   version "4.4.6"
@@ -5142,14 +5142,14 @@ yn@^2.0.0:
   resolved "https://registry.yarnpkg.com/yn/-/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
 
 yup@^0.26.2:
-  version "0.26.2"
-  resolved "https://registry.yarnpkg.com/yup/-/yup-0.26.2.tgz#6dbced6124424bd099a4f310d7eed674c77359fe"
+  version "0.26.3"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.26.3.tgz#66f2d4a474068e63f44a575d8341a24bb82de5bc"
   dependencies:
-    "@babel/runtime" "7.0.0-rc.1"
+    "@babel/runtime" "7.0.0"
     fn-name "~2.0.1"
     lodash "^4.17.10"
     property-expr "^1.5.0"
-    synchronous-promise "^1.0.18"
+    synchronous-promise "^2.0.5"
     toposort "^2.0.2"
 
 zen-observable-ts@^0.8.9:

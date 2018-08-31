@@ -5,8 +5,8 @@ import { User } from './../../entity/User'
 import { CreateTypeOrmConnection } from './../../utils/CreateTypeOrmConnection'
 import { duplicateEmail, emailNotLongEnough, invalidEmail, passwordNotLongEnough } from './errorMessages'
 
-const email = 'testf@gmail.com'
-const password = 'dsbdnd'
+const email = "testemail@gmail.com"
+const password = "passwordtest"
 
 const mutation = (e: string, p: string) => `
   mutation {
@@ -26,7 +26,7 @@ afterAll(async () => {
   conn.close()
 })
 
-describe('Register User', async () => {
+describe("Register User", () => {
   it("check for duplicate emails", async () => {
     // make sure we can register a user
     const response = await request(process.env.TEST_HOST as string, mutation(email, password))

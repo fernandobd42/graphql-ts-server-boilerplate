@@ -2,12 +2,12 @@ import axios from 'axios'
 import { Connection } from 'typeorm'
 
 import { CreateTypeOrmConnection } from './../../utils/CreateTypeOrmConnection'
-import { User } from '../../entity/User';
+import { User } from '../../entity/User'
 
 let userId: string
 let conn: Connection
-const email = "testando@gmail.com"
-const password = "testpassword"
+const email = "testemail@gmail.com"
+const password = "passwordtest"
 
 beforeAll(async () => {
   conn = await CreateTypeOrmConnection()
@@ -41,37 +41,41 @@ const meQuery = `
   }
 `
 
-describe("me", async () => {
-/*     test("can't get user if not logged in", async () => {
-      
-    }) */
-
-    test("get current user", async () => {
-      await axios.post(
-        process.env.TEST_HOST as string,
-        {
-          query: loginMutation(email, password)
-        },
-        {
-          withCredentials: true
-        }
-      )
-
-      const response = await axios.post(
-        process.env.TEST_HOST as string, 
-        {
-          query: meQuery
-        },
-        {
-          withCredentials: true
-        }
-      )
-
-      expect(response.data.data).toEqual({
-        me: {
-          id: userId,
-          email
-        }
-      })
+describe("me", () => {
+  test("return null if no cookie", async () => {
+    const response = await axios.post(process.env.TEST_HOST as string, {
+      query: meQuery
     })
+    expect(response.data.data.me).toBeNull()
+  })
+
+  test("get current user", async () => {
+    await axios.post(
+      process.env.TEST_HOST as string,
+      {
+        query: loginMutation(email, password)
+      },
+      {
+        withCredentials: true
+      }
+    )
+
+    const response = await axios.post(
+      process.env.TEST_HOST as string, 
+      {
+        query: meQuery
+      },
+      {
+        withCredentials: true
+      }
+    )
+
+    console.log("RESPOSTAAA ", response.data.data)
+    expect(response.data.data).toEqual({
+      me: {
+        id: userId,
+        email
+      }
+    })
+  })
 })

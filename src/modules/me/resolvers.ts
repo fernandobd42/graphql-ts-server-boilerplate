@@ -6,6 +6,7 @@ import middleware from "./middleware"
 export const resolvers: ResolverMap = {
   Query: {
     me: createMiddleware(middleware, (_, __, { session }) => 
+      console.log("SESSION", session) ||
       User.findOne({ where: { id: session.userId } })
     )
   }

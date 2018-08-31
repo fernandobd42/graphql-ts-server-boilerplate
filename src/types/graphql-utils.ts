@@ -2,7 +2,6 @@ import { Redis } from "ioredis"
 
 export interface Session {
   userId?: string,
-  
 }
 
 export type Resolver = (
