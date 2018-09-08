@@ -1,47 +1,55 @@
-import { User } from './entity/User';
-import { importSchema } from 'graphql-import'
-import { GraphQLServer } from 'graphql-yoga'
-import * as path from 'path'
-import * as fs from 'fs'
-import { makeExecutableSchema, mergeSchemas } from 'graphql-tools'
-import { GraphQLSchema } from 'graphql'
-import * as Redis from 'ioredis'
+import "reflect-metadata"
+import "dotenv/config"
+import { GraphQLServer } from "graphql-yoga"
+import * as session from 'express-session'
+import * as connectRedis from 'connect-redis'
 
+import { redis } from './redis'
 import { CreateTypeOrmConnection } from './utils/CreateTypeOrmConnection'
+import { confirmEmail } from "./routes/confirmEmail"
+import { genSchema } from "./utils/genSchema"
+
+const SESSION_SECRET = 'sjdbsdbsbdh4bbdsbhjdbjh2'
+const RedisStore = connectRedis(session)
 
 export const startServer = async () => {
-  const schemas: GraphQLSchema[] = []
-  const folders = fs.readdirSync(path.join(__dirname, './modules'))
-  folders.forEach(folder => {
-    const {resolvers} = require(`./modules/${folder}/resolvers`)
-    const typeDefs = importSchema(
-      path.join(__dirname, `./modules/${folder}/schema.graphql`)
-    )
-    schemas.push(makeExecutableSchema({resolvers, typeDefs}))
-  })
 
-  const redis = new Redis()
+  const server = new GraphQLServer({
+    schema: genSchema(),
+    context: ({ request }) => ({
+      redis,
+      url: request.protocol + "://" + request.get("host"),
+      session: request.session
+    })
+  });
 
-  const server = new GraphQLServer({ 
-    schema: mergeSchemas({ schemas }),
-    context: ({ request }) => ({ 
-      redis, 
-      url: request.protocol + "://" + request.get("host")})
-  })
+  server.express.use(
+    session({
+      store: new RedisStore({
+        client: redis as any
+      }),
+      name: 'qid',
+      secret: SESSION_SECRET,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 1000 * 60 * 60 * 24 * 7
+      }
+    })
+  )
 
-  server.express.get("confirm/:id", async (req, res) => {
-    const { id } = req.params
-    const userId = await redis.get(id)
-    if (userId) {
-      await User.update({ id: userId }, { confirmed: true })
-      res.send("ok")
-    } else {
-      res.send("bad")
-    }
-  })
+  const cors = {
+    credentials: true,
+    origin: process.env.NODE_ENV === 'test' ? '*' : process.env.FRONTEND_HOST as string
+  }
+
+  server.express.get("/confirm/:id", confirmEmail)
 
   await CreateTypeOrmConnection()
   const app = await server.start({
+    cors,
     port: process.env.NODE_ENV === 'test' ? 0 : 4000
   })
   console.log('Server is running on localhost:4000')

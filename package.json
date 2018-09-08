@@ -4,9 +4,13 @@
   "description": "Awesome project developed with TypeORM.",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.1",
+    "@types/connect-redis": "^0.0.7",
+    "@types/express-session": "^1.15.10",
     "@types/ioredis": "^3.2.14",
     "@types/jest": "^23.3.1",
     "@types/node": "^10.5.7",
+    "@types/node-fetch": "^2.1.2",
+    "@types/sparkpost": "^2.1.4",
     "@types/uuid": "^3.4.3",
     "@types/yup": "^0.24.7",
     "gql2ts": "^1.7.2",
@@ -19,23 +23,32 @@
     "typescript": "3.0.1"
   },
   "dependencies": {
+    "@gql2ts/from-schema": "^1.8.0",
+    "@types/express": "^4.11.1",
+    "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
+    "connect-redis": "^3.3.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "graphql": "^0.13.2",
     "graphql-import": "^0.5.0",
     "graphql-request": "^1.8.1",
     "graphql-tools": "^3.1.1",
-    "graphql-yoga": "^1.15.1",
+    "graphql-yoga": "^1.16.1",
     "ioredis": "^4.0.0",
+    "node-fetch": "^2.2.0",
     "pg": "^7.4.3",
     "reflect-metadata": "^0.1.12",
+    "sparkpost": "^2.1.2",
     "typeorm": "0.2.7",
     "uuid": "^3.3.2",
     "yup": "^0.26.2"
   },
   "scripts": {
     "start": "NODE_ENV=development nodemon --exec ts-node src/index.ts",
-    "test": "NODE_ENV=test jest --detectOpenHandles --forceExit",
-    "gen-schema-types": "gql2ts src/schema.graphql -o src/types/schema.d.ts"
+    "test": "NODE_ENV=test jest --watch --runInBand",
+    "gen-schema-types": "ts-node src/scripts/createTypes.ts"
   },
   "jest": {
     "globalSetup": "./src/testSetup/callSetup.js",
@@ -43,7 +56,6 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "testEnvironment": "node",
     "moduleFileExtensions": [
       "ts",
       "tsx",
