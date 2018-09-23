@@ -12,8 +12,8 @@ import { forgotPasswordLockedError } from "../login/errorMessages"
 
 let conn: Connection
 export const redis = new Redis()
-const email = "bob5@bob.com"
-const password = "jlkajoioiqwe"
+const email = "test@gmail.com"
+const password = "sassdsds"
 const newPassword = "qowuieoiqwueoq"
 let userId: string
 
@@ -27,11 +27,11 @@ beforeAll(async () => {
   userId = user.id
 })
 
- afterAll(async () => {
+afterAll(async () => {
   conn.close()
 })
 
- describe("forgot password", () => {
+describe("forgot password", () => {
   test("make sure it works", async () => {
     const client = new TestClient(process.env.TEST_HOST as string)
 
