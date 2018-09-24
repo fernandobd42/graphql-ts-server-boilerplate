@@ -27,6 +27,11 @@ bye2: string | null;
 dummy: string | null;
 me: IUser | null;
 bye: string | null;
+hello: string;
+}
+
+interface IHelloOnQueryArguments {
+name?: string | null;
 }
 
 interface IUser {

@@ -31,7 +31,7 @@ beforeAll(async () => {
   conn.close()
 })
 
- describe("forgot password", () => {
+describe("forgot password", () => {
   test("make sure it works", async () => {
     const client = new TestClient(process.env.TEST_HOST as string)
 
