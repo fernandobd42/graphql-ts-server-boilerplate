@@ -55,8 +55,8 @@ export class TestClient {
         body: {
           query: `
             mutation {
-              forgotPasswordChange(newPassword: ${newPassword}", key: ${key}) {
-                path,
+              forgotPasswordChange(newPassword: "${newPassword}", key: "${key}") {
+                path
                 message
               }
             }
