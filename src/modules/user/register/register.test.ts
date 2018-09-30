@@ -1,10 +1,10 @@
 import { Connection } from 'typeorm'
 import * as faker from "faker"
 
-import { User } from './../../entity/User'
+import { User } from './../../../entity/User'
 import { duplicateEmail, emailNotLongEnough, invalidEmail, passwordNotLongEnough } from './errorMessages'
-import { TestClient } from '../../utils/TestClient'
-import { createTestConnection } from '../../testUtils/createTestConnection'
+import { TestClient } from '../../../utils/TestClient'
+import { createTestConnection } from '../../../testUtils/createTestConnection'
 
 const email = faker.internet.email()
 const password = faker.internet.password()
