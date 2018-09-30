@@ -6,6 +6,7 @@ import { TestClient } from "../../../utils/TestClient"
 import { createTestConnection } from "../../../testUtils/createTestConnection"
 
 let conn: Connection
+faker.seed(Date.now() + 2)
 const email = faker.internet.email()
 const password = faker.internet.password()
 let userId: string

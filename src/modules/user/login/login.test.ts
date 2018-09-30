@@ -6,6 +6,7 @@ import { User } from "../../../entity/User"
 import { TestClient } from "../../../utils/TestClient"
 import { createTestConnection } from '../../../testUtils/createTestConnection'
 
+faker.seed(Date.now() + 1)
 const email = faker.internet.email()
 const password = faker.internet.password()
 const client = new TestClient(process.env.TEST_HOST as string)
